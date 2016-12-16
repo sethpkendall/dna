@@ -39,7 +39,17 @@ class DNATestCase extends DrupalUnitTestCase
         //Act
         $result = sister_strand_find($input);
         //Assert
-        $expected_output = 'C'
+        $expected_output = 'C';
         $this->assertEqual($result, $expected_output, $description);
+
+        // //Description
+        // $description =
+        // //Arrange
+        // $input =
+        // //Act
+        // $result =
+        // //Assert
+        // $expected_output =
+        // $this->assertEqual($result, $expected_output, $description);
     }
 }
