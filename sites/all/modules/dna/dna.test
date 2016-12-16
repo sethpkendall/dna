@@ -1,0 +1,35 @@
+<?php
+class DNATestCase extends DrupalUnitTestCase
+{
+    public static function getInfo()
+    {
+        return array(
+            'name' => 'DNA unit tests',
+            'description' => 'Tests for the DNA module',
+            'group' => 'Custom Modules Tests',
+        );
+    }
+
+    function testDNA()
+    {
+        //Description
+        $description =
+        //Arrange
+        $input =
+        //Act
+        $result =
+        //Assert
+        $expected_output =
+        $this->assertEqual($result, $expected_output, $description);
+
+        //Description
+        $description = 'For input of a single base A, T, C, or G a single complementary base T, A, G, C respectively is returned.';
+        //Arrange
+        $input = 'A';
+        //Act
+        $result = sister_strand_find($input);
+        //Assert
+        $expected_output = 'T';
+        $this->assertEqual($result, $expected_output, $description);
+    }
+}
