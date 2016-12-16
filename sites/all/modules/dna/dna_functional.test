@@ -1,0 +1,20 @@
+<?php
+class DNAFuncTestCase extends DrupalWebTestCase {
+    public static function getInfo(){
+        return array(
+            'name' => 'DNA functional tests',
+            'description' => 'Test the Web interface of the DNA module.',
+            'group' => 'Custom Modules Tests',
+        );
+    }
+
+    public function setUp() {
+        parent::setUp(array('dna'));
+    }
+
+    public function testDNAStrandCalc() {
+        $user = $this->drupalCreateAuthenticatedUser();
+        $this->drupalLogin($user);
+        
+    }
+}

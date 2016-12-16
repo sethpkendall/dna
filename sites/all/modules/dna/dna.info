@@ -4,4 +4,5 @@ package = Custom Modules
 core = 7.x
 files[] = dna.module
 files[] = dna.test
+files[] = dna_functional.test
 dependencies[] = simpletest
