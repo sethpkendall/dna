@@ -1,0 +1,57 @@
+<?php
+function DNA_menu() {
+    $items['DNA'] = array(
+        'title' => 'DNA',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('DNA_form'),
+        'access callback' => TRUE,
+        'type' => MENU_NORMAL_ITEM,
+    );
+
+    $items['DNA_success'] = array(
+        'title' => 'Success',
+        'page callback' => 'DNA_success',
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+    );
+    return $items;
+}
+
+function DNA_form() {
+    $form['input'] = array(
+        '#title' => 'First strand DNA sequence',
+        '#type' => 'textfield',
+        '#description' => t('Please input the initial DNA sequence to receive its compliment.'),
+        '#required' => TRUE,
+    );
+    $form['submit'] = array(
+        '#type' => 'submit',
+        '#value' => 'Submit',
+    );
+    return $form;
+}
+
+function sister_strand_find($input) {
+    if ($input === 'A') {
+        return 'T';
+    } elseif ($input === 'T') {
+        return 'A';
+    } elseif ($input === 'C') {
+        return 'G';
+    } elseif ($input === 'G') {
+        return 'C';
+    }
+}
+
+function DNA_form_submit($form, &$form_state) {
+    $input = $form_state['values']['input'];
+    $result = sister_strand_find($input);
+    $_SESSION['DNA'] = $result;
+
+    $form_state['redirect'] = 'DNA_success';
+}
+
+function DNA_success() {
+    $DNA = $_SESSION['DNA'];
+    return '<p>Your sister strand: ' . $DNA . '</p>';
+}
