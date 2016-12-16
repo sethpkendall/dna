@@ -1,0 +1,7 @@
+name = DNA
+description = A DNA complimentary string calculation module.
+package = Custom Modules
+core = 7.x
+files[] = dna.module
+files[] = dna.test
+dependencies[] = simpletest
