@@ -5,7 +5,7 @@
 
 ## Description
 
-_This drupal website is intended to illustrate proficiency with use of ajax in content blocks and in creation of functional and unit tests."_
+_This drupal website is intended to illustrate proficiency with use of ajax in content blocks and in creation of functional and unit tests._
 
 ## Setup Instructions
 
