@@ -1,0 +1,5 @@
+name = Displays
+description = Display Nodes with Ajax.
+package = Custom Modules
+core = 7.x
+files[] = displays.module
