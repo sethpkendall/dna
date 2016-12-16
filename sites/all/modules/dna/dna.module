@@ -22,6 +22,7 @@ function DNA_form() {
         '#title' => 'First strand DNA sequence',
         '#type' => 'textfield',
         '#description' => t('Please input the initial DNA sequence to receive its compliment.'),
+        '#element_validate' => array('element_validate_strand'),
         '#required' => TRUE,
     );
     $form['submit'] = array(
@@ -29,6 +30,17 @@ function DNA_form() {
         '#value' => 'Submit',
     );
     return $form;
+}
+
+function element_validate_strand($element) {
+    $element_input = strtoupper($element['#value']);
+    $input_array = str_split($element_input);
+    $accepted = array('A','T','C','G');
+    foreach($input_array as $letter){
+        if (!(in_array($letter, $accepted))){
+            form_error($element, t('Please limit input to the four DNA bases: "A," "T," "C," or "G."'));
+        }
+    }
 }
 
 function sister_strand_find($input) {
