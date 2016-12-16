@@ -12,16 +12,6 @@ class DNATestCase extends DrupalUnitTestCase
 
     function testDNA()
     {
-        // //Description
-        // $description =
-        // //Arrange
-        // $input =
-        // //Act
-        // $result =
-        // //Assert
-        // $expected_output =
-        // $this->assertEqual($result, $expected_output, $description);
-
         //Description
         $description = 'For input of a single base A, T, C, or G a single complementary base T, A, G, C respectively is returned.';
         //Arrange
