@@ -32,27 +32,35 @@ function DNA_form() {
 }
 
 function sister_strand_find($input) {
-    $upper_input = strtoupper($input);
-    if ($upper_input === 'A') {
-        return 'T';
-    } elseif ($upper_input === 'T') {
-        return 'A';
-    } elseif ($upper_input === 'C') {
-        return 'G';
-    } elseif ($upper_input === 'G') {
-        return 'C';
+    $_SESSION['strand'] = $input;
+    $parsed_input = str_split($input);
+    $sister_strand_array = array();
+    foreach($parsed_input as $base) {
+        $upper_base = strtoupper($base);
+        if ($upper_base === 'A') {
+            array_push($sister_strand_array, 'T');
+        } elseif ($upper_base === 'T') {
+            array_push($sister_strand_array, 'A');
+        } elseif ($upper_base === 'C') {
+            array_push($sister_strand_array, 'G');
+        } elseif ($upper_base === 'G') {
+            array_push($sister_strand_array, 'C');
+        }
     }
+    $sister_strand = implode('',$sister_strand_array);
+    return $sister_strand;
 }
 
 function DNA_form_submit($form, &$form_state) {
     $input = $form_state['values']['input'];
     $result = sister_strand_find($input);
-    $_SESSION['DNA'] = $result;
+    $_SESSION['sister_strand'] = $result;
 
     $form_state['redirect'] = 'DNA_success';
 }
 
 function DNA_success() {
-    $DNA = $_SESSION['DNA'];
-    return '<p>Your sister strand: ' . $DNA . '</p>';
+    $strand = $_SESSION['strand'];
+    $sister_strand = $_SESSION['sister_strand'];
+    return '<p>Originial strand: &nbsp;&nbsp;&nbsp;' . $strand . '<br>Your sister strand: ' . $sister_strand . '</p>';
 }

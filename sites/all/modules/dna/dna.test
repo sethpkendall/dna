@@ -43,13 +43,13 @@ class DNATestCase extends DrupalUnitTestCase
         $this->assertEqual($result, $expected_output, $description);
 
         //Description
-        $description = 'For input of a string of bases (i.e. CTCGA) a complimentary string of bases is returned (i.e. GAGCT).'
+        $description = 'For input of a string of bases (i.e. CTCGA) a complimentary string of bases is returned (i.e. GAGCT).';
         //Arrange
-        $input = 'CTCGA'
+        $input = 'CTCGA';
         //Act
         $result = sister_strand_find($input);
         //Assert
-        $expected_output = 'GAGCT'
+        $expected_output = 'GAGCT';
         $this->assertEqual($result, $expected_output, $description);
     }
 }
