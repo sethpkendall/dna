@@ -1,7 +1,7 @@
 <?php
 function DNA_menu() {
     $items['DNA'] = array(
-        'title' => 'DNA',
+        'title' => "Clearly we haven't learned our lesson. Let's screw around with DNA some more!",
         'page callback' => 'drupal_get_form',
         'page arguments' => array('DNA_form'),
         'access callback' => TRUE,
