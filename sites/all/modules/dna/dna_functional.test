@@ -10,11 +10,22 @@ class DNAFuncTestCase extends DrupalWebTestCase {
 
     public function setUp() {
         parent::setUp(array('dna'));
+        $user = $this->drupalCreateAuthenticatedUser();
+        $this->drupalLogin($user);
     }
 
     public function testDNAStrandCalc() {
-        $user = $this->drupalCreateAuthenticatedUser();
-        $this->drupalLogin($user);
-        
+        $info = array();
+        $info['input'] = "ATCG";
+        $this->drupalPost('DNA', $info, t('Submit'));
+        $this->assertText('Your sister strand: TAGC', "The expected text has been found on the page.");
+    }
+
+    public function drupalCreateAuthenticatedUser(array $permissions = array()) {
+        $roles = user_roles();
+        $index = array_search('authenticated', $roles);
+        $user = $this->drupalCreateUser($permissions);
+        $user->roles[$index] = 'authenticated';
+        return user_save($user);
     }
 }
