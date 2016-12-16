@@ -31,5 +31,15 @@ class DNATestCase extends DrupalUnitTestCase
         //Assert
         $expected_output = 'T';
         $this->assertEqual($result, $expected_output, $description);
+
+        //Description
+        $description = 'For input of a single base A, T, C, or G, regardless of case, a single complementary base T, A, G, C respectively is returned.';
+        //Arrange
+        $input = 'g';
+        //Act
+        $result = sister_strand_find($input);
+        //Assert
+        $expected_output = 'C'
+        $this->assertEqual($result, $expected_output, $description);
     }
 }
