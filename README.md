@@ -17,6 +17,7 @@ _This drupal website is intended to illustrate proficiency with use of ajax in c
 * _Under 'File to import' navigate to the .zip file of the website's database in dna/sites/db-backup and click 'Go'_
 * _On the PHPmyAdmin page for the "dna" database click on "Privileges" and add a new user. The User name should be "dna", the Host should be local and the Password should be "dna" as well_
 * _Once the database has imported and the "dna" user has been added, navigate to localhost:8888 or whichever port number your local server is hosting the drupal site on_
+* _Log into the Drupal site with the User name "dna" and password "dna"_
 
 ## Licensing
 
